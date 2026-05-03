@@ -53,13 +53,13 @@ const LandingPage = () => {
       {/* Navigation */}
       <nav className="sticky top-0 w-full z-50 bg-white shadow-md px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="w-16 h-16 bg-primary rounded-full flex-shrink-0 aspect-square flex items-center justify-center text-secondary font-bold text-2xl border-4 border-gray-100 shadow-sm">TR</div>
+          <Link to="/" className="flex items-center gap-4 group">
+            <div className="w-16 h-16 bg-primary rounded-full flex-shrink-0 aspect-square flex items-center justify-center text-secondary font-bold text-2xl border-4 border-gray-100 shadow-sm group-hover:scale-110 transition-transform">TR</div>
             <div>
               <h1 className="text-xl font-extrabold text-primary leading-tight uppercase tracking-tighter">Thomas Ramesh inter college</h1>
               <p className="text-[9px] text-gray-500 uppercase tracking-widest font-sans">Mustafabad Umari Prayagraj</p>
             </div>
-          </div>
+          </Link>
           
           <div className="hidden lg:flex items-center justify-end flex-1 gap-10">
             <div className="flex items-center gap-8 font-serif font-bold text-gray-800 uppercase text-[12px] tracking-[0.2em]">
@@ -98,14 +98,14 @@ const LandingPage = () => {
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            className="purple-overlay p-8 sm:p-12 lg:p-16 text-white max-w-xl shadow-2xl relative"
+            className="purple-overlay p-8 sm:p-12 lg:p-16 text-white max-w-3xl shadow-2xl relative"
           >
             <div className="absolute top-0 left-0 w-2 h-full bg-secondary"></div>
-            <h2 className="text-3xl sm:text-5xl lg:text-7xl font-black uppercase mb-6 leading-[1.1]">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black uppercase mb-6 leading-[1.1] tracking-tighter">
               A Tradition of <br />
               <span className="text-secondary">Excellence</span>
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl font-light mb-10 leading-relaxed font-sans opacity-90">
+            <p className="text-base sm:text-lg lg:text-xl font-light mb-10 leading-relaxed font-sans opacity-90 max-w-2xl">
               Founded on the principles of academic rigor and character development, we nurture the leaders of tomorrow.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">

@@ -29,9 +29,9 @@ const Navbar = ({ onMenuClick }) => {
             </p>
             <p className="text-xs text-gray-500 capitalize">{role}</p>
           </div>
-          <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-secondary font-bold text-xs border-2 border-white shadow-sm overflow-hidden">
+          <Link to="/" className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-secondary font-bold text-xs border-2 border-white shadow-sm overflow-hidden hover:scale-110 transition-transform">
             {user.name ? user.name.charAt(0).toUpperCase() : 'U'}
-          </div>
+          </Link>
         </div>
       </div>
     </nav>
