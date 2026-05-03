@@ -11,10 +11,12 @@ import StudentDashboard from './pages/StudentDashboard';
 import TeacherDashboard from './pages/TeacherDashboard';
 import AdminLoginPage from './pages/AdminLoginPage';
 import PublicLayout from './layouts/PublicLayout';
+import { AdmissionProvider } from './context/AdmissionContext';
 
 function App() {
   return (
-    <Router>
+    <AdmissionProvider>
+      <Router>
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<LandingPage />} />
@@ -56,6 +58,7 @@ function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
+    </AdmissionProvider>
   );
 }
 

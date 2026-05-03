@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Menu, X, Phone, Mail, MoreVertical } from 'lucide-react';
-import AdmissionForm from './AdmissionForm';
+import { useAdmission } from '../context/AdmissionContext';
 
 const PublicNavbar = () => {
-  const [isAdmissionOpen, setIsAdmissionOpen] = useState(false);
+  const { openAdmission } = useAdmission();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <>
-      <AdmissionForm isOpen={isAdmissionOpen} onClose={() => setIsAdmissionOpen(false)} />
-      
       <nav className="sticky top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100 px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link 
@@ -29,7 +27,7 @@ const PublicNavbar = () => {
             <div className="flex items-center gap-8 font-serif font-bold text-gray-800 uppercase text-[12px] tracking-[0.2em]">
               <Link to="/#home" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Home</Link>
               <button 
-                onClick={() => setIsAdmissionOpen(true)} 
+                onClick={openAdmission} 
                 className="hover:text-primary transition-all relative group py-1 whitespace-nowrap cursor-pointer uppercase"
               >
                 Admissions
@@ -68,7 +66,7 @@ const PublicNavbar = () => {
               <Link to="/#home" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition-all py-2 border-b border-gray-50">Home</Link>
               <button 
                 onClick={() => {
-                  setIsAdmissionOpen(true);
+                  openAdmission();
                   setIsMobileMenuOpen(false);
                 }} 
                 className="text-left hover:text-primary transition-all py-2 border-b border-gray-50 uppercase font-bold"
