@@ -232,7 +232,7 @@ const LandingPage = () => {
           <div className="grid md:grid-cols-4 gap-12 mb-20">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center text-secondary font-bold text-xl border-2 border-white/20">TR</div>
+                <div className="w-14 h-14 bg-primary rounded-full flex-shrink-0 aspect-square flex items-center justify-center text-secondary font-bold text-xl border-2 border-white/20">TR</div>
                 <h2 className="text-2xl font-black uppercase tracking-tighter">Thomas Ramesh<br /><span className="text-primary">Inter College</span></h2>
               </div>
               <p className="text-gray-400 leading-relaxed max-w-sm mb-8 font-light">
