@@ -38,52 +38,51 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <div id="home" className="min-h-screen bg-white font-serif selection:bg-primary selection:text-white">
+    <div id="home" className="min-h-screen bg-white font-serif">
       <AdmissionForm isOpen={isAdmissionOpen} onClose={() => setIsAdmissionOpen(false)} />
       
-      {/* Top Bar */}
-      <div className="bg-primary text-secondary px-6 py-2 flex justify-between items-center text-[10px] font-bold tracking-[0.2em] uppercase border-b border-white/10">
-        <div className="flex gap-6">
-          <span className="flex items-center gap-2"><Phone className="w-3 h-3" /> +91 00000 00000</span>
-          <span className="flex items-center gap-2 border-l border-white/20 pl-6 hidden sm:flex"><Mail className="w-3 h-3" /> info@tric.edu.in</span>
-        </div>
-        <div className="flex gap-4">
-          <Link to="/login" className="hover:text-white transition-colors">Student Portal</Link>
-          <span className="opacity-30">|</span>
-          <Link to="/login" className="hover:text-white transition-colors">Staff Login</Link>
+      {/* Side Banner */}
+      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-[100] hidden lg:block">
+        <div className="bg-primary text-white py-6 px-2 flex flex-col items-center gap-6 rounded-l-xl shadow-2xl">
+          <button onClick={() => setIsAdmissionOpen(true)} className="[writing-mode:vertical-lr] rotate-180 uppercase font-bold tracking-widest text-sm hover:text-secondary transition-colors cursor-pointer">Get in Touch / Apply Now</button>
+          <div className="flex flex-col gap-4">
+            <button className="p-2 hover:bg-white/20 rounded-lg transition-colors"><Phone className="w-5 h-5" /></button>
+            <button className="p-2 hover:bg-white/20 rounded-lg transition-colors"><Mail className="w-5 h-5" /></button>
+          </div>
         </div>
       </div>
 
       {/* Navigation */}
       <nav className="sticky top-0 w-full z-50 bg-white shadow-md px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link 
-            to="/" 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-4 group cursor-pointer"
-          >
+          <div className="flex items-center gap-4">
             <div className="w-16 h-16 bg-primary rounded-full flex-shrink-0 aspect-square flex items-center justify-center text-secondary font-bold text-2xl border-4 border-gray-100 shadow-sm">TR</div>
             <div>
               <h1 className="text-xl font-extrabold text-primary leading-tight uppercase tracking-tighter">Thomas Ramesh inter college</h1>
               <p className="text-[9px] text-gray-500 uppercase tracking-widest font-sans">Mustafabad Umari Prayagraj</p>
             </div>
-          </Link>
+          </div>
           
           <div className="hidden lg:flex items-center justify-end flex-1 gap-10">
             <div className="flex items-center gap-8 font-serif font-bold text-gray-800 uppercase text-[12px] tracking-[0.2em]">
-              <a href="#home" className="hover:text-primary transition-colors">HOME</a>
-              <button onClick={() => setIsAdmissionOpen(true)} className="hover:text-primary transition-colors uppercase cursor-pointer">ADMISSIONS</button>
-              <a href="#academics" className="hover:text-primary transition-colors">ACADEMICS</a>
-              <a href="#school-life" className="hover:text-primary transition-colors">SCHOOL LIFE</a>
-              <a href="#facilities" className="hover:text-primary transition-colors">FACILITIES</a>
-              <a href="#about" className="hover:text-primary transition-colors">ABOUT US</a>
-              <a href="#contact" className="hover:text-primary transition-colors">CONTACT</a>
+              <a href="#home" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Home</a>
+              <button 
+                onClick={() => setIsAdmissionOpen(true)} 
+                className="hover:text-primary transition-all relative group py-1 whitespace-nowrap cursor-pointer uppercase"
+              >
+                Admissions
+              </button>
+              <a href="#academics" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Academics</a>
+              <a href="#school-life" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">School Life</a>
+              <a href="#faculty" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Facilities</a>
+              <a href="#about" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">About Us</a>
+              <a href="#contact" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Contact</a>
             </div>
             <Link 
               to="/login"
-              className="bg-primary text-white px-10 py-4 hover:bg-opacity-90 transition-all shadow-lg shadow-primary/10 text-sm font-bold tracking-widest uppercase rounded-sm whitespace-nowrap"
+              className="bg-primary text-white px-8 py-3.5 hover:bg-opacity-90 transition-all shadow-lg shadow-primary/10 text-xs font-bold tracking-widest uppercase rounded-sm whitespace-nowrap"
             >
-              LOGIN
+              Login
             </Link>
           </div>
         </div>
@@ -101,7 +100,7 @@ const LandingPage = () => {
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            className="purple-overlay p-8 sm:p-12 lg:p-16 text-white max-w-3xl shadow-2xl relative"
+            className="bg-primary/90 p-8 sm:p-12 lg:p-16 text-white max-w-3xl shadow-2xl relative"
           >
             <div className="absolute top-0 left-0 w-2 h-full bg-secondary"></div>
             <h2 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black uppercase mb-6 leading-[1.1] tracking-tighter">
@@ -120,7 +119,7 @@ const LandingPage = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-white px-6">
+      <section id="academics" className="py-24 px-6 bg-white">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
           {[
             { label: "Students", val: "1500+", icon: Users },
@@ -137,13 +136,52 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Notice Board */}
-      <section id="notices" className="py-24 bg-white px-6">
+      {/* School Life Section */}
+      <section id="school-life" className="py-24 px-6 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div>
+              <span className="text-primary font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Campus Experience</span>
+              <h2 className="text-5xl font-black text-primary uppercase mb-8 leading-tight tracking-tighter">Life at <br/> T.R.I.C</h2>
+              <p className="text-gray-500 font-sans leading-relaxed text-lg mb-10">
+                Beyond academics, we offer a rich tapestry of extracurricular activities, from sports and arts to leadership programs, ensuring a well-rounded development for every student.
+              </p>
+              <div className="flex flex-col gap-6">
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 bg-primary/5 rounded-full flex items-center justify-center text-primary shrink-0"><Trophy className="w-6 h-6" /></div>
+                  <div>
+                    <h4 className="font-black text-primary uppercase text-sm mb-1 tracking-tight">Sports Excellence</h4>
+                    <p className="text-gray-400 text-xs font-sans">State-of-the-art facilities for athletics and indoor games.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 bg-primary/5 rounded-full flex items-center justify-center text-primary shrink-0"><Users className="w-6 h-6" /></div>
+                  <div>
+                    <h4 className="font-black text-primary uppercase text-sm mb-1 tracking-tight">Student Clubs</h4>
+                    <p className="text-gray-400 text-xs font-sans">Diverse communities for coding, debate, and music.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <img src="/images/playground.jpg" alt="Playground" className="rounded-2xl shadow-2xl h-80 w-full object-cover mt-12" />
+              <img src="/images/classroom.jpg" alt="Classroom" className="rounded-2xl shadow-2xl h-80 w-full object-cover" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Notice Board Section */}
+      <section id="faculty" className="py-24 px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-16">
             <div>
               <span className="text-primary font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Institutional Updates</span>
               <h2 className="text-5xl font-black text-primary uppercase tracking-tighter">Latest News</h2>
+            </div>
+            <div className="flex gap-4">
+              <button className="p-3 bg-white border border-gray-100 shadow-sm text-primary hover:bg-primary hover:text-white transition-all"><ArrowRight className="w-5 h-5 rotate-180" /></button>
+              <button className="p-3 bg-white border border-gray-100 shadow-sm text-primary hover:bg-primary hover:text-white transition-all"><ArrowRight className="w-5 h-5" /></button>
             </div>
           </div>
           
@@ -170,77 +208,6 @@ const LandingPage = () => {
                 <button className="flex items-center gap-2 text-primary font-black uppercase text-[10px] tracking-widest hover:gap-4 transition-all">
                   Read Full Announcement <ChevronRight className="w-4 h-4" />
                 </button>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* School Life Section */}
-      <section id="school-life" className="py-24 bg-primary text-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
-          <div>
-            <span className="text-secondary font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Campus Experience</span>
-            <h2 className="text-5xl font-black uppercase mb-8 leading-tight tracking-tighter">Life at <br/> T.R.I.C</h2>
-            <p className="text-white/70 font-sans leading-relaxed text-lg mb-10">
-              Beyond academics, we offer a rich tapestry of extracurricular activities, from sports and arts to leadership programs, ensuring a well-rounded development for every student.
-            </p>
-            <div className="grid grid-cols-2 gap-6">
-              <div className="bg-white/10 p-6 rounded-sm border border-white/10">
-                <Trophy className="w-8 h-8 text-secondary mb-4" />
-                <h4 className="font-bold uppercase text-sm mb-2">Sports Excellence</h4>
-                <p className="text-xs text-white/50 font-sans">State-of-the-art facilities for athletics and indoor games.</p>
-              </div>
-              <div className="bg-white/10 p-6 rounded-sm border border-white/10">
-                <Users className="w-8 h-8 text-secondary mb-4" />
-                <h4 className="font-bold uppercase text-sm mb-2">Student Clubs</h4>
-                <p className="text-xs text-white/50 font-sans">Diverse communities for coding, debate, and music.</p>
-              </div>
-            </div>
-          </div>
-          <div className="relative">
-            <div className="grid grid-cols-2 gap-4">
-              <img src="/images/playground.jpg" alt="Playground" className="rounded-sm shadow-2xl h-64 w-full object-cover mt-12" />
-              <img src="/images/classroom.jpg" alt="Classroom" className="rounded-sm shadow-2xl h-64 w-full object-cover" />
-            </div>
-            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-white/5 rounded-full blur-3xl"></div>
-          </div>
-        </div>
-      </section>
-
-      {/* Faculty */}
-      <section id="facilities" className="py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <span className="text-primary font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Our Educators</span>
-            <h2 className="text-5xl font-black text-primary uppercase tracking-tighter">Distinguished Faculty</h2>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-12">
-            {[
-              { name: "Mrs. Sunita Verma", role: "Vice Principal", subject: "English Literature", img: "/images/faculty/vice_principal.png" },
-              { name: "Mr. Anil Kumar", role: "Senior Faculty", subject: "Physics", img: "/images/faculty/teacher1.png" },
-              { name: "Dr. Anjali Gupta", role: "Department Head", subject: "Chemistry", img: "/images/faculty/teacher2.png" }
-            ].map((teacher, i) => (
-              <motion.div 
-                key={i}
-                whileHover={{ y: -10 }}
-                className="bg-white group rounded-[2rem] overflow-hidden shadow-xl border border-gray-100"
-              >
-                <div className="h-64 bg-primary/5 relative overflow-hidden">
-                  <img src={teacher.img} alt={teacher.name} className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-500" />
-                  <div className="absolute top-4 right-4 bg-secondary text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg">
-                    {teacher.subject}
-                  </div>
-                </div>
-                <div className="p-8 text-center">
-                  <h3 className="text-xl font-black text-primary uppercase tracking-tight mb-1">{teacher.name}</h3>
-                  <p className="text-secondary font-bold text-xs uppercase tracking-widest mb-4">{teacher.role}</p>
-                  <div className="flex justify-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors cursor-pointer"><Mail className="w-4 h-4" /></div>
-                    <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors cursor-pointer"><Phone className="w-4 h-4" /></div>
-                  </div>
-                </div>
               </motion.div>
             ))}
           </div>
@@ -303,11 +270,10 @@ const LandingPage = () => {
           <div>
             <h4 className="text-lg font-black uppercase mb-8 text-secondary">Quick Links</h4>
             <ul className="space-y-4 font-sans text-sm text-gray-400 uppercase tracking-widest font-bold">
-              <li><button onClick={() => setIsAdmissionOpen(true)} className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4 cursor-pointer">ADMISSIONS</button></li>
-              <li><Link to="#" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">ACADEMICS</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">SCHOOL LIFE</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">FACILITIES</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">CONTACT US</Link></li>
+              <li><button onClick={() => setIsAdmissionOpen(true)} className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4 cursor-pointer">Admissions</button></li>
+              <li><Link to="#" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">Curriculum</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">Campus Life</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">Contact Us</Link></li>
             </ul>
           </div>
           <div>
