@@ -38,20 +38,9 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <div id="home" className="min-h-screen bg-white font-serif">
+    <div id="home" className="min-h-screen bg-white font-serif selection:bg-primary selection:text-white">
       <AdmissionForm isOpen={isAdmissionOpen} onClose={() => setIsAdmissionOpen(false)} />
       
-      {/* Side Banner */}
-      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-[100] hidden lg:block">
-        <div className="bg-primary text-white py-6 px-2 flex flex-col items-center gap-6 rounded-l-xl shadow-2xl">
-          <button onClick={() => setIsAdmissionOpen(true)} className="[writing-mode:vertical-lr] rotate-180 uppercase font-bold tracking-widest text-sm hover:text-secondary transition-colors cursor-pointer">Get in Touch / Apply Now</button>
-          <div className="flex flex-col gap-4">
-            <button className="p-2 hover:bg-white/20 rounded-lg transition-colors"><Phone className="w-5 h-5" /></button>
-            <button className="p-2 hover:bg-white/20 rounded-lg transition-colors"><Mail className="w-5 h-5" /></button>
-          </div>
-        </div>
-      </div>
-
       {/* Navigation */}
       <nav className="sticky top-0 w-full z-50 bg-white shadow-md px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -60,7 +49,7 @@ const LandingPage = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center gap-4 group cursor-pointer"
           >
-            <div className="w-16 h-16 bg-primary rounded-full flex-shrink-0 aspect-square flex items-center justify-center text-secondary font-bold text-2xl border-4 border-gray-100 shadow-sm group-hover:scale-110 transition-transform">TR</div>
+            <div className="w-16 h-16 bg-primary rounded-full flex-shrink-0 aspect-square flex items-center justify-center text-secondary font-bold text-2xl border-4 border-gray-100 shadow-sm">TR</div>
             <div>
               <h1 className="text-xl font-extrabold text-primary leading-tight uppercase tracking-tighter">Thomas Ramesh inter college</h1>
               <p className="text-[9px] text-gray-500 uppercase tracking-widest font-sans">Mustafabad Umari Prayagraj</p>
@@ -69,17 +58,12 @@ const LandingPage = () => {
           
           <div className="hidden lg:flex items-center justify-end flex-1 gap-10">
             <div className="flex items-center gap-8 font-serif font-bold text-gray-800 uppercase text-[12px] tracking-[0.2em]">
-              <a href="#home" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">HOME</a>
-              <button 
-                onClick={() => setIsAdmissionOpen(true)} 
-                className="hover:text-primary transition-all relative group py-1 whitespace-nowrap cursor-pointer uppercase"
-              >
-                ADMISSIONS
-              </button>
-              <a href="#academics" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">ACADEMICS</a>
-              <a href="#school-life" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">SCHOOL LIFE</a>
-              <a href="#faculty" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">FACILITIES</a>
-              <a href="#contact" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">CONTACT</a>
+              <a href="#home" className="hover:text-primary transition-colors">HOME</a>
+              <button onClick={() => setIsAdmissionOpen(true)} className="hover:text-primary transition-colors uppercase cursor-pointer">ADMISSIONS</button>
+              <a href="#academics" className="hover:text-primary transition-colors">ACADEMICS</a>
+              <a href="#school-life" className="hover:text-primary transition-colors">SCHOOL LIFE</a>
+              <a href="#facilities" className="hover:text-primary transition-colors">FACILITIES</a>
+              <a href="#contact" className="hover:text-primary transition-colors">CONTACT</a>
             </div>
             <button 
               onClick={() => setIsAdmissionOpen(true)}
@@ -122,7 +106,7 @@ const LandingPage = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gray-50 px-6">
+      <section id="academics" className="py-20 bg-gray-50 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
           {[
             { label: "Students", val: "1500+", icon: Users },
@@ -140,7 +124,7 @@ const LandingPage = () => {
       </section>
 
       {/* Notice Board */}
-      <section id="notices" className="py-24 bg-white px-6">
+      <section id="facilities" className="py-24 bg-white px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-16">
             <div>
@@ -175,6 +159,14 @@ const LandingPage = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* School Life Section (Placeholder to make link work) */}
+      <section id="school-life" className="py-20 bg-primary text-white text-center">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-4xl font-black uppercase mb-6 tracking-tighter">School Life</h2>
+          <p className="text-white/80 font-sans leading-relaxed">Experience a vibrant campus life with sports, arts, and cultural activities designed to develop well-rounded individuals.</p>
         </div>
       </section>
 
