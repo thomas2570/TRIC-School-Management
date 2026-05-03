@@ -130,6 +130,13 @@ const AdmissionForm = ({ isOpen, onClose }) => {
                 >
                   <option value="">Select Class</option>
                   <option value="1">Class 1st</option>
+                  <option value="2">Class 2nd</option>
+                  <option value="3">Class 3rd</option>
+                  <option value="4">Class 4th</option>
+                  <option value="5">Class 5th</option>
+                  <option value="6">Class 6th</option>
+                  <option value="7">Class 7th</option>
+                  <option value="8">Class 8th</option>
                   <option value="9">Class 9th</option>
                   <option value="10">Class 10th</option>
                   <option value="11">Class 11th</option>
