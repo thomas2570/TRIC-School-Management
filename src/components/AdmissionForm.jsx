@@ -59,15 +59,15 @@ const AdmissionForm = ({ isOpen, onClose }) => {
           <div className="bg-primary p-6 sm:p-8 text-white relative shrink-0">
             <button 
               onClick={onClose}
-              className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 hover:bg-white/20 rounded-full transition-colors"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 hover:bg-white/20 rounded-full transition-colors z-10"
             >
               <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
-            <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-secondary rounded-xl sm:rounded-2xl flex items-center justify-center text-primary font-bold text-xl sm:text-2xl">TR</div>
-              <h2 className="text-lg sm:text-2xl font-black uppercase tracking-tight leading-tight">Admission Inquiry 2026-27</h2>
+            <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4 pr-10 sm:pr-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-secondary rounded-xl sm:rounded-2xl flex items-center justify-center text-primary font-bold text-xl sm:text-2xl shrink-0">TR</div>
+              <h2 className="text-base sm:text-2xl font-black uppercase tracking-tight leading-tight">Admission Inquiry 2026-27</h2>
             </div>
-            <p className="text-blue-100 font-sans text-xs sm:text-sm opacity-80">Please fill out the form below and our admissions team will contact you shortly.</p>
+            <p className="text-blue-100 font-sans text-[10px] sm:text-sm opacity-80 pr-10 sm:pr-0">Please fill out the form below and our admissions team will contact you shortly.</p>
           </div>
 
           {/* Form Content - Scrollable */}
