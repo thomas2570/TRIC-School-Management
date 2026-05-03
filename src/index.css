@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #330066;
+  --color-secondary: #FFD700;
+  --color-school-bg: #F7F7F7;
+  --font-inter: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  font-family: var(--font-inter);
+  line-height: 1.5;
+  font-weight: 400;
+  color: #1E293B;
+  background-color: var(--color-school-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--color-school-bg);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.purple-overlay {
+  background: rgba(51, 0, 102, 0.85);
+}
+
+.btn-primary {
+  @apply px-8 py-3 bg-primary text-white font-bold rounded-none hover:opacity-90 transition-all uppercase tracking-wider;
+}
+
+.section-title {
+  @apply text-3xl font-extrabold uppercase tracking-tight text-primary mb-6;
+}
