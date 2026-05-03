@@ -97,16 +97,16 @@ const LandingPage = () => {
           className="w-full h-full object-cover scale-105 animate-[slow-zoom_20s_infinite_alternate]"
         />
         <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-y-0 left-0 w-full flex items-stretch justify-center lg:justify-start">
+        <div className="absolute inset-y-0 left-0 w-full flex items-stretch">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            className="purple-overlay p-8 sm:p-12 lg:p-16 text-white max-w-3xl h-full flex flex-col justify-center shadow-2xl relative"
+            className="purple-overlay w-full lg:w-auto p-8 sm:p-12 lg:p-16 text-white max-w-3xl h-full flex flex-col justify-center shadow-2xl relative"
           >
             <div className="absolute top-0 left-0 w-2 h-full bg-secondary"></div>
-            <h2 className="text-3xl sm:text-5xl lg:text-7xl font-black uppercase mb-6 leading-[1.1]">
-              A Tradition of <br />
-              <span className="text-secondary">Excellence</span>
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase mb-6 leading-[1.1] tracking-tight">
+              A Tradition <br />
+              of <span className="text-secondary">Excellence</span>
             </h2>
             <p className="text-base sm:text-lg lg:text-xl font-light mb-10 leading-relaxed font-sans opacity-90">
               Founded on the principles of academic rigor and character development, we nurture the leaders of tomorrow.
