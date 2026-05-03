@@ -12,14 +12,15 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="space-y-12 pb-12">
+    <div className="space-y-12 pb-24">
       <PageHeader 
         title="About Our School" 
         subtitle="Excellence in Education since 1995. Discover our history, mission, and the team behind our success."
         imageUrl="/images/campus.jpg"
       />
 
-      {/* Mission & Vision */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+        {/* Mission & Vision */}
       <div className="grid md:grid-cols-2 gap-8 px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -100,6 +101,8 @@ const AboutPage = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+      </div>
         </div>
       </div>
     </div>

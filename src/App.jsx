@@ -10,6 +10,7 @@ import NoticeBoard from './pages/NoticeBoard';
 import StudentDashboard from './pages/StudentDashboard';
 import TeacherDashboard from './pages/TeacherDashboard';
 import AdminLoginPage from './pages/AdminLoginPage';
+import PublicLayout from './layouts/PublicLayout';
 
 function App() {
   return (
@@ -40,15 +41,15 @@ function App() {
         } />
 
         <Route path="/notices" element={
-          <DashboardLayout>
+          <PublicLayout>
             <NoticeBoard />
-          </DashboardLayout>
+          </PublicLayout>
         } />
 
         <Route path="/about" element={
-          <DashboardLayout>
+          <PublicLayout>
             <AboutPage />
-          </DashboardLayout>
+          </PublicLayout>
         } />
 
         {/* Redirect unknown routes */}

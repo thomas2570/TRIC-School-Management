@@ -20,9 +20,10 @@ import {
 
 import AdmissionForm from '../components/AdmissionForm';
 
+import PublicLayout from '../layouts/PublicLayout';
+
 const LandingPage = () => {
   const [isAdmissionOpen, setIsAdmissionOpen] = React.useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [notices, setNotices] = React.useState([]);
 
   React.useEffect(() => {
@@ -39,100 +40,20 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <div id="home" className="min-h-screen mesh-bg font-serif">
-      <AdmissionForm isOpen={isAdmissionOpen} onClose={() => setIsAdmissionOpen(false)} />
-      
-      {/* Side Banner */}
-      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-[100] hidden lg:block">
-        <div className="bg-primary text-white py-6 px-2 flex flex-col items-center gap-6 rounded-l-xl shadow-2xl">
-          <button onClick={() => setIsAdmissionOpen(true)} className="[writing-mode:vertical-lr] rotate-180 uppercase font-bold tracking-widest text-sm hover:text-secondary transition-colors cursor-pointer">Get in Touch / Apply Now</button>
-          <div className="flex flex-col gap-4">
-            <button className="p-2 hover:bg-white/20 rounded-lg transition-colors"><Phone className="w-5 h-5" /></button>
-            <button className="p-2 hover:bg-white/20 rounded-lg transition-colors"><Mail className="w-5 h-5" /></button>
+    <PublicLayout>
+      <div id="home" className="min-h-screen">
+        <AdmissionForm isOpen={isAdmissionOpen} onClose={() => setIsAdmissionOpen(false)} />
+        
+        {/* Side Banner */}
+        <div className="fixed right-0 top-1/2 -translate-y-1/2 z-[100] hidden lg:block">
+          <div className="bg-primary text-white py-6 px-2 flex flex-col items-center gap-6 rounded-l-xl shadow-2xl">
+            <button onClick={() => setIsAdmissionOpen(true)} className="[writing-mode:vertical-lr] rotate-180 uppercase font-bold tracking-widest text-sm hover:text-secondary transition-colors cursor-pointer">Get in Touch / Apply Now</button>
+            <div className="flex flex-col gap-4">
+              <button className="p-2 hover:bg-white/20 rounded-lg transition-colors"><Phone className="w-5 h-5" /></button>
+              <button className="p-2 hover:bg-white/20 rounded-lg transition-colors"><Mail className="w-5 h-5" /></button>
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* Navigation */}
-      <nav className="sticky top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100 px-6 py-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link 
-            to="/" 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-4 hover:opacity-90 transition-opacity cursor-pointer"
-          >
-            <div className="w-16 h-16 bg-primary rounded-full flex-shrink-0 aspect-square flex items-center justify-center text-secondary font-bold text-2xl border-4 border-gray-100 shadow-sm">TR</div>
-            <div>
-              <h1 className="text-xl font-extrabold text-primary leading-tight uppercase tracking-tighter">Thomas Ramesh inter college</h1>
-            </div>
-          </Link>
-          
-          <div className="hidden lg:flex items-center justify-end flex-1 gap-10">
-            <div className="flex items-center gap-8 font-serif font-bold text-gray-800 uppercase text-[12px] tracking-[0.2em]">
-              <a href="#home" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Home</a>
-              <button 
-                onClick={() => setIsAdmissionOpen(true)} 
-                className="hover:text-primary transition-all relative group py-1 whitespace-nowrap cursor-pointer uppercase"
-              >
-                Admissions
-              </button>
-              <a href="#academics" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Academics</a>
-              <a href="#school-life" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">School Life</a>
-              <a href="#faculty" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Facilities</a>
-              <a href="#about" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">About Us</a>
-              <a href="#contact" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Contact</a>
-            </div>
-            <Link 
-              to="/login"
-              className="bg-primary text-white px-8 py-3.5 hover:bg-opacity-90 transition-all shadow-lg shadow-primary/10 text-xs font-bold tracking-widest uppercase rounded-sm whitespace-nowrap"
-            >
-              Login
-            </Link>
-          </div>
-
-          {/* Mobile Menu Toggle */}
-          <button 
-            className="lg:hidden p-2 text-primary hover:bg-gray-100 rounded-full transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <MoreVertical className="w-6 h-6" />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation Dropdown */}
-        {isMobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="lg:hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-xl p-6"
-          >
-            <div className="flex flex-col gap-6 font-serif font-bold text-gray-800 uppercase text-xs tracking-widest">
-              <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition-all py-2 border-b border-gray-50">Home</a>
-              <button 
-                onClick={() => {
-                  setIsAdmissionOpen(true);
-                  setIsMobileMenuOpen(false);
-                }} 
-                className="text-left hover:text-primary transition-all py-2 border-b border-gray-50 uppercase font-bold"
-              >
-                Admissions
-              </button>
-              <a href="#academics" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition-all py-2 border-b border-gray-50">Academics</a>
-              <a href="#school-life" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition-all py-2 border-b border-gray-50">School Life</a>
-              <a href="#faculty" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition-all py-2 border-b border-gray-50">Facilities</a>
-              <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition-all py-2 border-b border-gray-50">About Us</a>
-              <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition-all py-2 border-b border-gray-50">Contact</a>
-              <Link 
-                to="/login"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="bg-primary text-white px-8 py-4 text-center hover:bg-opacity-90 transition-all shadow-lg shadow-primary/10 text-xs font-bold tracking-widest uppercase rounded-sm mt-2"
-              >
-                Login
-              </Link>
-            </div>
-          </motion.div>
-        )}
-      </nav>
 
       {/* Hero Section */}
       <section className="relative h-[80vh] sm:h-[85vh] overflow-hidden">
@@ -469,57 +390,8 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer id="contact" className="bg-[#1a0033] text-white pt-24 pb-12 px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-16 mb-20">
-          <div className="col-span-1 md:col-span-1">
-            <Link 
-              to="/" 
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="flex items-center gap-4 mb-8 hover:opacity-90 transition-opacity cursor-pointer"
-            >
-              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary font-bold text-xl">TR</div>
-              <h1 className="text-lg font-black uppercase tracking-tighter">Thomas Ramesh <br/> inter college</h1>
-            </Link>
-            <p className="text-gray-400 font-sans leading-relaxed text-sm">
-              Inspiring excellence since 1995. A premier educational institution dedicated to global standards of learning.
-            </p>
-          </div>
-          <div>
-            <h4 className="text-lg font-black uppercase mb-8 text-secondary">Quick Links</h4>
-            <ul className="space-y-4 font-sans text-sm text-gray-400 uppercase tracking-widest font-bold">
-              <li><button onClick={() => setIsAdmissionOpen(true)} className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4 cursor-pointer">Admissions</button></li>
-              <li><Link to="#" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">Curriculum</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">Campus Life</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">Contact Us</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-lg font-black uppercase mb-8 text-secondary">Contact Us</h4>
-            <ul className="space-y-6 font-sans text-sm text-gray-400">
-              <li className="flex gap-4"><MapPin className="w-5 h-5 text-secondary shrink-0" /> Mustafabad Umari, Prayagraj, UP 221507</li>
-              <li className="flex gap-4"><Phone className="w-5 h-5 text-secondary shrink-0" /> +91 987 654 3210</li>
-              <li className="flex gap-4"><Mail className="w-5 h-5 text-secondary shrink-0" /> info@tricprayagraj.edu</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-lg font-black uppercase mb-8 text-secondary">Newsletter</h4>
-            <p className="text-gray-400 font-sans text-sm mb-6">Stay updated with our latest news and events.</p>
-            <div className="flex gap-2">
-              <input type="text" placeholder="Email Address" className="bg-white/10 border border-white/20 px-4 py-2 w-full font-sans focus:outline-none focus:border-secondary transition-colors" />
-              <button className="bg-secondary text-primary p-2"><ChevronRight className="w-6 h-6" /></button>
-            </div>
-          </div>
-        </div>
-        <div className="max-w-7xl mx-auto border-t border-white/10 pt-12 flex flex-col sm:flex-row justify-between items-center gap-6 text-xs text-gray-500 font-sans uppercase tracking-widest font-bold">
-          <p>© 2026 Thomas Ramesh inter college. All rights reserved.</p>
-          <div className="flex gap-8">
-            <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="#" className="hover:text-white transition-colors">Terms of Service</Link>
-          </div>
-        </div>
-      </footer>
-    </div>
+      </div>
+    </PublicLayout>
   );
 };
 

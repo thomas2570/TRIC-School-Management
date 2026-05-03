@@ -38,14 +38,15 @@ const NoticeBoard = () => {
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 pb-24">
       <PageHeader 
         title="Notice Board" 
         subtitle="Stay updated with the latest happenings, announcements, and events at SmartSchool."
         imageUrl="/images/events.jpg"
       />
 
-      <div className="flex items-center gap-4 flex-wrap mb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-4 flex-wrap mb-8">
         {['All', 'Events', 'Academic', 'Sports', 'Important'].map((filter, i) => (
           <button 
             key={i}
@@ -99,6 +100,8 @@ const NoticeBoard = () => {
             </div>
           </motion.div>
         ))}
+      </div>
+        </div>
       </div>
     </div>
   );
