@@ -55,13 +55,17 @@ const LandingPage = () => {
       {/* Navigation */}
       <nav className="sticky top-0 w-full z-50 bg-white shadow-md px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="w-16 h-16 bg-primary rounded-full flex-shrink-0 aspect-square flex items-center justify-center text-secondary font-bold text-2xl border-4 border-gray-100 shadow-sm">TR</div>
+          <Link 
+            to="/" 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center gap-4 group cursor-pointer"
+          >
+            <div className="w-16 h-16 bg-primary rounded-full flex-shrink-0 aspect-square flex items-center justify-center text-secondary font-bold text-2xl border-4 border-gray-100 shadow-sm group-hover:scale-110 transition-transform">TR</div>
             <div>
               <h1 className="text-xl font-extrabold text-primary leading-tight uppercase tracking-tighter">Thomas Ramesh inter college</h1>
               <p className="text-[9px] text-gray-500 uppercase tracking-widest font-sans">Mustafabad Umari Prayagraj</p>
             </div>
-          </div>
+          </Link>
           
           <div className="hidden lg:flex items-center justify-end flex-1 gap-10">
             <div className="flex items-center gap-8 font-serif font-bold text-gray-800 uppercase text-[12px] tracking-[0.2em]">
