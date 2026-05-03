@@ -38,39 +38,52 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <div id="home" className="min-h-screen bg-white font-serif selection:bg-primary selection:text-white">
+    <div id="home" className="min-h-screen bg-white font-serif">
       <AdmissionForm isOpen={isAdmissionOpen} onClose={() => setIsAdmissionOpen(false)} />
       
+      {/* Side Banner */}
+      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-[100] hidden lg:block">
+        <div className="bg-primary text-white py-6 px-2 flex flex-col items-center gap-6 rounded-l-xl shadow-2xl">
+          <button onClick={() => setIsAdmissionOpen(true)} className="[writing-mode:vertical-lr] rotate-180 uppercase font-bold tracking-widest text-sm hover:text-secondary transition-colors cursor-pointer">Get in Touch / Apply Now</button>
+          <div className="flex flex-col gap-4">
+            <button className="p-2 hover:bg-white/20 rounded-lg transition-colors"><Phone className="w-5 h-5" /></button>
+            <button className="p-2 hover:bg-white/20 rounded-lg transition-colors"><Mail className="w-5 h-5" /></button>
+          </div>
+        </div>
+      </div>
+
       {/* Navigation */}
       <nav className="sticky top-0 w-full z-50 bg-white shadow-md px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link 
-            to="/" 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-4 group cursor-pointer"
-          >
+          <div className="flex items-center gap-4">
             <div className="w-16 h-16 bg-primary rounded-full flex-shrink-0 aspect-square flex items-center justify-center text-secondary font-bold text-2xl border-4 border-gray-100 shadow-sm">TR</div>
             <div>
               <h1 className="text-xl font-extrabold text-primary leading-tight uppercase tracking-tighter">Thomas Ramesh inter college</h1>
               <p className="text-[9px] text-gray-500 uppercase tracking-widest font-sans">Mustafabad Umari Prayagraj</p>
             </div>
-          </Link>
+          </div>
           
           <div className="hidden lg:flex items-center justify-end flex-1 gap-10">
             <div className="flex items-center gap-8 font-serif font-bold text-gray-800 uppercase text-[12px] tracking-[0.2em]">
-              <a href="#home" className="hover:text-primary transition-colors">HOME</a>
-              <button onClick={() => setIsAdmissionOpen(true)} className="hover:text-primary transition-colors uppercase cursor-pointer">ADMISSIONS</button>
-              <a href="#academics" className="hover:text-primary transition-colors">ACADEMICS</a>
-              <a href="#school-life" className="hover:text-primary transition-colors">SCHOOL LIFE</a>
-              <a href="#facilities" className="hover:text-primary transition-colors">FACILITIES</a>
-              <a href="#contact" className="hover:text-primary transition-colors">CONTACT</a>
+              <a href="#home" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Home</a>
+              <button 
+                onClick={() => setIsAdmissionOpen(true)} 
+                className="hover:text-primary transition-all relative group py-1 whitespace-nowrap cursor-pointer uppercase"
+              >
+                Admissions
+              </button>
+              <a href="#academics" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Academics</a>
+              <a href="#school-life" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">School Life</a>
+              <a href="#faculty" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Facilities</a>
+              <a href="#about" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">About Us</a>
+              <a href="#contact" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Contact</a>
             </div>
-            <button 
-              onClick={() => setIsAdmissionOpen(true)}
-              className="bg-primary text-white px-10 py-4 hover:bg-opacity-90 transition-all shadow-lg shadow-primary/10 text-sm font-bold tracking-widest uppercase rounded-sm whitespace-nowrap"
+            <Link 
+              to="/login"
+              className="bg-primary text-white px-8 py-3.5 hover:bg-opacity-90 transition-all shadow-lg shadow-primary/10 text-xs font-bold tracking-widest uppercase rounded-sm whitespace-nowrap"
             >
-              Apply Now
-            </button>
+              Login
+            </Link>
           </div>
         </div>
       </nav>
@@ -123,8 +136,8 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Notice Board */}
-      <section id="facilities" className="py-24 bg-white px-6">
+      {/* Latest News */}
+      <section id="faculty" className="py-24 bg-white px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-16">
             <div>
@@ -162,11 +175,115 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* School Life Section (Placeholder to make link work) */}
-      <section id="school-life" className="py-20 bg-primary text-white text-center">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-4xl font-black uppercase mb-6 tracking-tighter">School Life</h2>
-          <p className="text-white/80 font-sans leading-relaxed">Experience a vibrant campus life with sports, arts, and cultural activities designed to develop well-rounded individuals.</p>
+      {/* School Life */}
+      <section id="school-life" className="py-24 bg-primary text-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+          <div>
+            <span className="text-secondary font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Campus Experience</span>
+            <h2 className="text-5xl font-black uppercase mb-8 leading-tight tracking-tighter">Life at <br/> T.R.I.C</h2>
+            <p className="text-white/70 font-sans leading-relaxed text-lg mb-10">
+              Beyond academics, we offer a rich tapestry of extracurricular activities, from sports and arts to leadership programs, ensuring a well-rounded development for every student.
+            </p>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="bg-white/10 p-6 rounded-sm border border-white/10">
+                <Trophy className="w-8 h-8 text-secondary mb-4" />
+                <h4 className="font-bold uppercase text-sm mb-2">Sports Excellence</h4>
+                <p className="text-xs text-white/50 font-sans">State-of-the-art facilities for athletics and indoor games.</p>
+              </div>
+              <div className="bg-white/10 p-6 rounded-sm border border-white/10">
+                <Users className="w-8 h-8 text-secondary mb-4" />
+                <h4 className="font-bold uppercase text-sm mb-2">Student Clubs</h4>
+                <p className="text-xs text-white/50 font-sans">Diverse communities for coding, debate, and music.</p>
+              </div>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="grid grid-cols-2 gap-4">
+              <img src="/images/playground.jpg" alt="Playground" className="rounded-sm shadow-2xl h-64 w-full object-cover mt-12" />
+              <img src="/images/classroom.jpg" alt="Classroom" className="rounded-sm shadow-2xl h-64 w-full object-cover" />
+            </div>
+            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-white/5 rounded-full blur-3xl"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Faculty */}
+      <section id="faculty-section" className="py-24 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <span className="text-primary font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Our Educators</span>
+            <h2 className="text-5xl font-black text-primary uppercase tracking-tighter">Distinguished Faculty</h2>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-12">
+            {[
+              { name: "Mrs. Sunita Verma", role: "Vice Principal", subject: "English Literature", img: "/images/faculty/vice_principal.png" },
+              { name: "Mr. Anil Kumar", role: "Senior Faculty", subject: "Physics", img: "/images/faculty/teacher1.png" },
+              { name: "Dr. Anjali Gupta", role: "Department Head", subject: "Chemistry", img: "/images/faculty/teacher2.png" }
+            ].map((teacher, i) => (
+              <motion.div 
+                key={i}
+                whileHover={{ y: -10 }}
+                className="bg-white group rounded-[2rem] overflow-hidden shadow-xl border border-gray-100"
+              >
+                <div className="h-64 bg-primary/5 relative overflow-hidden">
+                  <img src={teacher.img} alt={teacher.name} className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-500" />
+                  <div className="absolute top-4 right-4 bg-secondary text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg">
+                    {teacher.subject}
+                  </div>
+                </div>
+                <div className="p-8 text-center">
+                  <h3 className="text-xl font-black text-primary uppercase tracking-tight mb-1">{teacher.name}</h3>
+                  <p className="text-secondary font-bold text-xs uppercase tracking-widest mb-4">{teacher.role}</p>
+                  <div className="flex justify-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors cursor-pointer"><Mail className="w-4 h-4" /></div>
+                    <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors cursor-pointer"><Phone className="w-4 h-4" /></div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-24 px-6 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div className="relative">
+              <img 
+                src="/images/faculty/principal.png" 
+                alt="Dr. Ramesh Sharma" 
+                className="rounded-[3rem] shadow-2xl relative z-10 w-full h-[600px] object-cover" 
+              />
+              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-secondary rounded-[3rem] -z-0 hidden lg:block"></div>
+              <div className="absolute top-1/2 -left-10 -translate-y-1/2 w-32 h-32 bg-primary rounded-full blur-3xl opacity-20"></div>
+            </div>
+            
+            <div>
+              <span className="text-primary font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Leadership Message</span>
+              <h2 className="text-4xl lg:text-5xl font-black text-primary uppercase mb-6 leading-tight">Welcome from <br/> our Principal</h2>
+              <p className="text-gray-600 font-sans text-xl italic leading-relaxed mb-8 border-l-4 border-secondary pl-6">
+                "Our mission at T.R. I C is to provide an environment where students can discover their true potential and graduate as leaders of tomorrow."
+              </p>
+              
+              <div className="mb-10">
+                <h3 className="text-2xl font-black text-primary uppercase">Dr. Ramesh Sharma</h3>
+                <p className="text-secondary font-bold tracking-widest uppercase text-xs">Principal & Academic Director</p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-8 pt-8 border-t border-gray-200">
+                <div>
+                  <h4 className="text-primary font-black uppercase text-sm mb-2">Our Mission</h4>
+                  <p className="text-gray-500 text-sm font-sans leading-relaxed">Nurturing innovative minds with strong moral character since 1995.</p>
+                </div>
+                <div>
+                  <h4 className="text-primary font-black uppercase text-sm mb-2">Our Vision</h4>
+                  <p className="text-gray-500 text-sm font-sans leading-relaxed">To be the benchmark of quality education in Prayagraj.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -185,11 +302,10 @@ const LandingPage = () => {
           <div>
             <h4 className="text-lg font-black uppercase mb-8 text-secondary">Quick Links</h4>
             <ul className="space-y-4 font-sans text-sm text-gray-400 uppercase tracking-widest font-bold">
-              <li><button onClick={() => setIsAdmissionOpen(true)} className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4 cursor-pointer">ADMISSIONS</button></li>
-              <li><Link to="#" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">ACADEMICS</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">SCHOOL LIFE</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">FACILITIES</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">CONTACT US</Link></li>
+              <li><button onClick={() => setIsAdmissionOpen(true)} className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4 cursor-pointer">Admissions</button></li>
+              <li><Link to="#" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">Curriculum</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">Campus Life</Link></li>
+              <li><Link to="#" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">Contact Us</Link></li>
             </ul>
           </div>
           <div>
@@ -209,7 +325,7 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto border-t border-white/10 pt-12 text-center text-xs text-gray-500 font-sans uppercase tracking-widest font-bold">
+        <div className="max-w-7xl mx-auto border-t border-white/10 pt-12 flex flex-col sm:flex-row justify-between items-center gap-6 text-xs text-gray-500 font-sans uppercase tracking-widest font-bold">
           <p>© 2026 Thomas Ramesh inter college. All rights reserved.</p>
         </div>
       </footer>
