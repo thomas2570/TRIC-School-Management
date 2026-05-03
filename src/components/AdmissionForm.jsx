@@ -53,25 +53,26 @@ const AdmissionForm = ({ isOpen, onClose }) => {
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          className="relative w-full max-w-2xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden"
+          className="relative w-[95%] sm:w-full max-w-2xl bg-white rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
         >
           {/* Header */}
-          <div className="bg-primary p-8 text-white relative">
+          <div className="bg-primary p-6 sm:p-8 text-white relative shrink-0">
             <button 
               onClick={onClose}
-              className="absolute top-6 right-6 p-2 hover:bg-white/20 rounded-full transition-colors"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 hover:bg-white/20 rounded-full transition-colors"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 bg-secondary rounded-2xl flex items-center justify-center text-primary font-bold text-2xl">TR</div>
-              <h2 className="text-2xl font-black uppercase tracking-tight">Admission Inquiry 2026-27</h2>
+            <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-secondary rounded-xl sm:rounded-2xl flex items-center justify-center text-primary font-bold text-xl sm:text-2xl">TR</div>
+              <h2 className="text-lg sm:text-2xl font-black uppercase tracking-tight leading-tight">Admission Inquiry 2026-27</h2>
             </div>
-            <p className="text-blue-100 font-sans text-sm opacity-80">Please fill out the form below and our admissions team will contact you shortly.</p>
+            <p className="text-blue-100 font-sans text-xs sm:text-sm opacity-80">Please fill out the form below and our admissions team will contact you shortly.</p>
           </div>
 
-          {/* Form */}
-          <form className="p-10 grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={handleSubmit}>
+          {/* Form Content - Scrollable */}
+          <div className="overflow-y-auto custom-scrollbar">
+            <form className="p-6 sm:p-10 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6" onSubmit={handleSubmit}>
             <div className="space-y-2">
               <label className="text-xs font-black text-gray-400 uppercase tracking-widest px-1">Student Full Name</label>
               <div className="relative">
@@ -159,6 +160,7 @@ const AdmissionForm = ({ isOpen, onClose }) => {
               Submit Application <Send className="w-5 h-5" />
             </button>
           </form>
+          </div>
         </motion.div>
       </div>
     </AnimatePresence>
