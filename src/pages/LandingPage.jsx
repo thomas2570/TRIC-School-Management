@@ -36,7 +36,7 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <div id="home" className="min-h-screen bg-white font-serif">
+    <div id="home" className="min-h-screen mesh-bg font-serif">
       <AdmissionForm isOpen={isAdmissionOpen} onClose={() => setIsAdmissionOpen(false)} />
       
       {/* Side Banner */}
@@ -51,7 +51,7 @@ const LandingPage = () => {
       </div>
 
       {/* Navigation */}
-      <nav className="sticky top-0 w-full z-50 bg-white shadow-md px-6 py-4">
+      <nav className="sticky top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100 px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link 
             to="/" 
@@ -60,9 +60,7 @@ const LandingPage = () => {
           >
             <div className="w-16 h-16 bg-primary rounded-full flex-shrink-0 aspect-square flex items-center justify-center text-secondary font-bold text-2xl border-4 border-gray-100 shadow-sm">TR</div>
             <div>
-              <h1 className="text-xl font-extrabold text-primary leading-tight uppercase tracking-tighter">
-                Thomas Ramesh <br /> inter college
-              </h1>
+              <h1 className="text-xl font-extrabold text-primary leading-tight uppercase tracking-tighter">Thomas Ramesh inter college</h1>
             </div>
           </Link>
           
@@ -122,11 +120,12 @@ const LandingPage = () => {
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-20 bg-gray-50 px-6">
+      <section className="py-24 px-6 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-0 shadow-2xl rounded-none overflow-hidden">
           {[
             { title: "Our Vision", desc: "To be a globally recognized institution that fosters innovation, integrity, and lifelong learning.", icon: Award, color: "bg-primary text-white" },
-            { title: "Our Mission", desc: "Providing a holistic education that empowers students to excel academically and contribute to society.", icon: BookOpen, color: "bg-white text-primary" },
+            { title: "Our Mission", desc: "Providing a holistic education that empowers students to excel academically and contribute to society.", icon: BookOpen, color: "bg-school-accent text-primary border-y md:border-y-0 md:border-x border-gray-200" },
             { title: "Our Philosophy", desc: "We believe in the power of curiosity, the value of hard work, and the importance of global citizenship.", icon: Users, color: "bg-secondary text-primary" }
           ].map((item, i) => (
             <div key={i} className={`p-10 sm:p-16 flex flex-col items-center text-center ${item.color}`}>
@@ -139,7 +138,8 @@ const LandingPage = () => {
       </section>
 
       {/* Live Notice Board - Upgraded Grid Design */}
-      <section className="py-24 bg-gray-50 px-6">
+      <section className="py-24 px-6 relative">
+        <div className="absolute inset-0 bg-primary/[0.02] -skew-y-3 origin-right"></div>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-primary font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Official Announcements</span>
@@ -243,7 +243,7 @@ const LandingPage = () => {
       </section>
 
       {/* Academics Section */}
-      <section id="academics" className="py-24 px-6 bg-white">
+      <section id="academics" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-primary font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Academic Excellence</span>
@@ -252,7 +252,7 @@ const LandingPage = () => {
           </div>
           
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="bg-gray-50 p-12 rounded-[3rem] border border-gray-100 shadow-sm">
+            <div className="bg-white p-12 rounded-[3rem] border border-gray-100 shadow-xl">
               <div className="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center mb-8">
                 <BookOpen className="w-8 h-8" />
               </div>
@@ -311,7 +311,7 @@ const LandingPage = () => {
       </section>
 
       {/* School Life Gallery */}
-      <section id="school-life" className="py-24 px-6 bg-white">
+      <section id="school-life" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="section-title">Life at T.R. I C</h2>
@@ -338,7 +338,8 @@ const LandingPage = () => {
       </section>
 
       {/* Expert Faculty Section */}
-      <section id="faculty" className="py-24 px-6 bg-gray-50">
+      <section id="faculty" className="py-24 px-6 relative">
+        <div className="absolute inset-0 bg-primary/[0.01] skew-y-3 origin-left"></div>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-primary font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Meet Our Educators</span>
@@ -383,7 +384,7 @@ const LandingPage = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 px-6 bg-gray-50">
+      <section id="about" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div className="relative">

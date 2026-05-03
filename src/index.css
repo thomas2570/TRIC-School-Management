@@ -3,7 +3,8 @@
 @theme {
   --color-primary: #330066;
   --color-secondary: #FFD700;
-  --color-school-bg: #F7F7F7;
+  --color-school-bg: #F8F9FA;
+  --color-school-accent: #E9ECEF;
   --font-inter: "Inter", system-ui, sans-serif;
 }
 
@@ -22,6 +23,22 @@ body {
   padding: 0;
   min-height: 100vh;
   background-color: var(--color-school-bg);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(51, 0, 102, 0.03) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(255, 215, 0, 0.03) 0px, transparent 50%);
+  background-attachment: fixed;
+}
+
+.mesh-bg {
+  background-color: var(--color-school-bg);
+  background-image: 
+    radial-gradient(at 40% 20%, rgba(51, 0, 102, 0.02) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(255, 215, 0, 0.02) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(51, 0, 102, 0.02) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, rgba(255, 215, 0, 0.02) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(51, 0, 102, 0.02) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, rgba(255, 215, 0, 0.02) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, rgba(51, 0, 102, 0.02) 0px, transparent 50%);
 }
 
 .glass-card {
