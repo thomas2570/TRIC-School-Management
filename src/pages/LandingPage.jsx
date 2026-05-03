@@ -13,13 +13,16 @@ import {
   Trophy,
   Calendar,
   Tag,
-  User
+  User,
+  MoreVertical,
+  X
 } from 'lucide-react';
 
 import AdmissionForm from '../components/AdmissionForm';
 
 const LandingPage = () => {
   const [isAdmissionOpen, setIsAdmissionOpen] = React.useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [notices, setNotices] = React.useState([]);
 
   React.useEffect(() => {
@@ -86,7 +89,49 @@ const LandingPage = () => {
               Login
             </Link>
           </div>
+
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="lg:hidden p-2 text-primary hover:bg-gray-100 rounded-full transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <MoreVertical className="w-6 h-6" />}
+          </button>
         </div>
+
+        {/* Mobile Navigation Dropdown */}
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="lg:hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-xl p-6"
+          >
+            <div className="flex flex-col gap-6 font-serif font-bold text-gray-800 uppercase text-xs tracking-widest">
+              <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition-all py-2 border-b border-gray-50">Home</a>
+              <button 
+                onClick={() => {
+                  setIsAdmissionOpen(true);
+                  setIsMobileMenuOpen(false);
+                }} 
+                className="text-left hover:text-primary transition-all py-2 border-b border-gray-50 uppercase font-bold"
+              >
+                Admissions
+              </button>
+              <a href="#academics" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition-all py-2 border-b border-gray-50">Academics</a>
+              <a href="#school-life" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition-all py-2 border-b border-gray-50">School Life</a>
+              <a href="#faculty" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition-all py-2 border-b border-gray-50">Facilities</a>
+              <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition-all py-2 border-b border-gray-50">About Us</a>
+              <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition-all py-2 border-b border-gray-50">Contact</a>
+              <Link 
+                to="/login"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="bg-primary text-white px-8 py-4 text-center hover:bg-opacity-90 transition-all shadow-lg shadow-primary/10 text-xs font-bold tracking-widest uppercase rounded-sm mt-2"
+              >
+                Login
+              </Link>
+            </div>
+          </motion.div>
+        )}
       </nav>
 
       {/* Hero Section */}
