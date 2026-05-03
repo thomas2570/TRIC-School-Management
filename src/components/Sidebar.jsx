@@ -39,7 +39,7 @@ const Sidebar = ({ isOpen, onClose }) => {
         ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
         <div className="flex items-center justify-between p-6 border-b border-gray-100">
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-3 group cursor-pointer relative z-50">
             <div className="w-10 h-10 bg-primary rounded-full flex-shrink-0 aspect-square flex items-center justify-center text-secondary font-bold text-xl border-2 border-gray-100 group-hover:scale-110 transition-transform">TR</div>
             <div className="flex flex-col">
               <span className="font-black text-[10px] text-primary uppercase tracking-tighter leading-none">Thomas Ramesh</span>
