@@ -53,7 +53,11 @@ const LandingPage = () => {
       {/* Navigation */}
       <nav className="sticky top-0 w-full z-50 bg-white shadow-md px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-4 hover:opacity-90 transition-opacity">
+          <Link 
+            to="/" 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center gap-4 hover:opacity-90 transition-opacity cursor-pointer"
+          >
             <div className="w-16 h-16 bg-primary rounded-full flex-shrink-0 aspect-square flex items-center justify-center text-secondary font-bold text-2xl border-4 border-gray-100 shadow-sm">TR</div>
             <div>
               <h1 className="text-xl font-extrabold text-primary leading-tight uppercase tracking-tighter">Thomas Ramesh inter college</h1>
@@ -422,7 +426,11 @@ const LandingPage = () => {
       <footer id="contact" className="bg-[#1a0033] text-white pt-24 pb-12 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-16 mb-20">
           <div className="col-span-1 md:col-span-1">
-            <Link to="/" className="flex items-center gap-4 mb-8 hover:opacity-90 transition-opacity">
+            <Link 
+              to="/" 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="flex items-center gap-4 mb-8 hover:opacity-90 transition-opacity cursor-pointer"
+            >
               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary font-bold text-xl">TR</div>
               <h1 className="text-lg font-black uppercase tracking-tighter">Thomas Ramesh <br/> inter college</h1>
             </Link>
