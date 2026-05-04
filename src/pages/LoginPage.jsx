@@ -19,7 +19,10 @@ const LoginPage = () => {
     e.preventDefault();
     
     // Admin bypass
-    if (loginType === 'staff' && formData.identifier === 'thomasramesh449@gmail.com' && formData.password === 'Abhi@123') {
+    const trimmedEmail = formData.identifier.trim().toLowerCase();
+    const trimmedPassword = formData.password.trim();
+
+    if (loginType === 'staff' && trimmedEmail === 'thomasramesh449@gmail.com' && trimmedPassword === 'Abhi@123') {
       localStorage.setItem('role', 'admin');
       navigate('/admin');
       return;
@@ -27,8 +30,8 @@ const LoginPage = () => {
 
     const endpoint = loginType === 'student' ? '/api/login' : '/api/teacher/login';
     const payload = loginType === 'student' 
-      ? { rollNumber: formData.identifier, password: formData.password }
-      : { email: formData.identifier, password: formData.password };
+      ? { rollNumber: formData.identifier.trim(), password: formData.password.trim() }
+      : { email: formData.identifier.trim(), password: formData.password.trim() };
 
     try {
       const response = await fetch(`${API_URL}${endpoint}`, {

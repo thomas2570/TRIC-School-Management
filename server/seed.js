@@ -17,16 +17,27 @@ const seedData = async () => {
     const testStudent = new Student({
       rollNumber: '123',
       password: 'password123',
-      name: 'Anil Kumar', // Using your requested name
+      name: 'Anil Kumar',
       class: '12th',
       section: 'A',
       attendance: 98.5
     });
 
+    const Teacher = require('./models/Teacher');
+    await Teacher.deleteMany({ email: 'teacher@test.com' });
+    const testTeacher = new Teacher({
+      name: 'Test Teacher',
+      email: 'teacher@test.com',
+      password: 'password123',
+      subject: 'Mathematics',
+      assignedClasses: ['10th-A', '12th-A']
+    });
+
     await testStudent.save();
-    console.log('🌟 Test Student Created!');
-    console.log('Roll Number: 123');
-    console.log('Password: password123');
+    await testTeacher.save();
+    console.log('🌟 Test Data Created!');
+    console.log('Student Roll: 123 | Pass: password123');
+    console.log('Teacher Email: teacher@test.com | Pass: password123');
     
     process.exit();
   } catch (error) {
