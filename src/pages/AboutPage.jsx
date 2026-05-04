@@ -5,7 +5,7 @@ import { Mail, Phone, Award, BookOpen } from 'lucide-react';
 
 const AboutPage = () => {
   const teachers = [
-    { name: 'Rajesh Sharma', role: 'Principal', subject: 'Mathematics', img: '/images/faculty/principal.png' },
+    { name: 'Dr. Rajesh Sharma', role: 'Principal', subject: 'Mathematics', img: '/images/faculty/principal.png' },
     { name: 'Mrs. Sunita Verma', role: 'Vice Principal', subject: 'English Literature', img: '/images/faculty/vice_principal.png' },
     { name: 'Mr. Anil Kumar', role: 'Senior Faculty', subject: 'Physics', img: '/images/faculty/teacher1.png' },
     { name: 'Dr. Anjali Gupta', role: 'Department Head', subject: 'Chemistry', img: '/images/faculty/teacher2.png' }
@@ -70,7 +70,7 @@ const AboutPage = () => {
                 but also emotionally resilient and socially responsible."
               </p>
               <div>
-                <h4 className="text-2xl font-bold text-gray-900">Rajesh Sharma</h4>
+                <h4 className="text-2xl font-bold text-gray-900">Dr. Rajesh Sharma</h4>
                 <p className="text-primary font-semibold mt-1">Principal & Academic Director</p>
               </div>
             </div>
