@@ -8,6 +8,17 @@ const PublicNavbar = () => {
   const { openAdmission } = useAdmission();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const scrollToSection = (e, id) => {
+    if (window.location.pathname === '/') {
+      e.preventDefault();
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        setIsMobileMenuOpen(false);
+      }
+    }
+  };
+
   return (
     <>
       <nav className="sticky top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100 px-6 py-4">
@@ -25,18 +36,18 @@ const PublicNavbar = () => {
           
           <div className="hidden lg:flex items-center justify-end flex-1 gap-10">
             <div className="flex items-center gap-8 font-serif font-bold text-gray-800 uppercase text-[12px] tracking-[0.2em]">
-              <Link to="/#home" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Home</Link>
+              <Link to="/#home" onClick={(e) => scrollToSection(e, 'home')} className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Home</Link>
               <button 
                 onClick={openAdmission} 
                 className="hover:text-primary transition-all relative group py-1 whitespace-nowrap cursor-pointer uppercase"
               >
                 Admissions
               </button>
-              <Link to="/#academics" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Academics</Link>
-              <Link to="/#school-life" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">School Life</Link>
-              <Link to="/#faculty" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Facilities</Link>
+              <Link to="/#academics" onClick={(e) => scrollToSection(e, 'academics')} className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Academics</Link>
+              <Link to="/#school-life" onClick={(e) => scrollToSection(e, 'school-life')} className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">School Life</Link>
+              <Link to="/#faculty" onClick={(e) => scrollToSection(e, 'faculty')} className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Facilities</Link>
               <Link to="/about" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">About Us</Link>
-              <Link to="/#contact" className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Contact</Link>
+              <Link to="/#contact" onClick={(e) => scrollToSection(e, 'contact')} className="hover:text-primary transition-all relative group py-1 whitespace-nowrap">Contact</Link>
             </div>
             <Link 
               to="/login"
@@ -63,7 +74,7 @@ const PublicNavbar = () => {
             className="lg:hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-xl p-6"
           >
             <div className="flex flex-col gap-6 font-serif font-bold text-gray-800 uppercase text-xs tracking-widest">
-              <Link to="/#home" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition-all py-2 border-b border-gray-50">Home</Link>
+              <Link to="/#home" onClick={(e) => scrollToSection(e, 'home')} className="hover:text-primary transition-all py-2 border-b border-gray-50">Home</Link>
               <button 
                 onClick={() => {
                   openAdmission();
@@ -73,11 +84,11 @@ const PublicNavbar = () => {
               >
                 Admissions
               </button>
-              <Link to="/#academics" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition-all py-2 border-b border-gray-50">Academics</Link>
-              <Link to="/#school-life" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition-all py-2 border-b border-gray-50">School Life</Link>
-              <Link to="/#faculty" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition-all py-2 border-b border-gray-50">Facilities</Link>
+              <Link to="/#academics" onClick={(e) => scrollToSection(e, 'academics')} className="hover:text-primary transition-all py-2 border-b border-gray-50">Academics</Link>
+              <Link to="/#school-life" onClick={(e) => scrollToSection(e, 'school-life')} className="hover:text-primary transition-all py-2 border-b border-gray-50">School Life</Link>
+              <Link to="/#faculty" onClick={(e) => scrollToSection(e, 'faculty')} className="hover:text-primary transition-all py-2 border-b border-gray-50">Facilities</Link>
               <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition-all py-2 border-b border-gray-50">About Us</Link>
-              <Link to="/#contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-primary transition-all py-2 border-b border-gray-50">Contact</Link>
+              <Link to="/#contact" onClick={(e) => scrollToSection(e, 'contact')} className="hover:text-primary transition-all py-2 border-b border-gray-50">Contact</Link>
               <Link 
                 to="/login"
                 onClick={() => setIsMobileMenuOpen(false)}
