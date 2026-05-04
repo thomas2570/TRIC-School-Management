@@ -97,7 +97,7 @@ const AdmissionForm = ({ isOpen, onClose }) => {
                 <input 
                   required 
                   type="tel" 
-                  placeholder="+91 00000 00000" 
+                  placeholder="+91 8808XXX74" 
                   value={formData.phone}
                   onChange={(e) => setFormData({...formData, phone: e.target.value})}
                   className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary/20 outline-none transition-all font-sans" 

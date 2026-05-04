@@ -32,7 +32,7 @@ const PublicFooter = () => {
           <h4 className="text-lg font-black uppercase mb-8 text-secondary">Contact Us</h4>
           <ul className="space-y-6 font-sans text-sm text-gray-400">
             <li className="flex gap-4"><MapPin className="w-5 h-5 text-secondary shrink-0" /> Mustafabad Umari, Prayagraj, UP 221507</li>
-            <li className="flex gap-4"><Phone className="w-5 h-5 text-secondary shrink-0" /> +91 987 654 3210</li>
+            <li className="flex gap-4"><Phone className="w-5 h-5 text-secondary shrink-0" /> +91 8808XXX74</li>
             <li className="flex gap-4"><Mail className="w-5 h-5 text-secondary shrink-0" /> info@tricprayagraj.edu</li>
           </ul>
         </div>
