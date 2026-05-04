@@ -305,7 +305,7 @@ const LandingPage = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { name: "Dr. Ramesh Sharma", role: "Principal", subject: "Mathematics", img: "/images/faculty/principal.png" },
+              { name: "Rajesh Sharma", role: "Principal", subject: "Mathematics", img: "/images/faculty/principal.png" },
               { name: "Mrs. Sunita Verma", role: "Vice Principal", subject: "English Literature", img: "/images/faculty/vice_principal.png" },
               { name: "Mr. Anil Kumar", role: "Senior Faculty", subject: "Physics", img: "/images/faculty/teacher1.png" },
               { name: "Dr. Anjali Gupta", role: "Department Head", subject: "Chemistry", img: "/images/faculty/teacher2.png" }
@@ -346,7 +346,7 @@ const LandingPage = () => {
             <div className="relative">
               <img 
                 src="/images/faculty/principal.png" 
-                alt="Dr. Ramesh Sharma" 
+                alt="Rajesh Sharma" 
                 className="rounded-[3rem] shadow-2xl relative z-10 w-full h-[600px] object-cover" 
               />
               <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-secondary rounded-[3rem] -z-0 hidden lg:block"></div>
@@ -361,7 +361,7 @@ const LandingPage = () => {
               </p>
               
               <div className="mb-10">
-                <h3 className="text-2xl font-black text-primary uppercase">Dr. Ramesh Sharma</h3>
+                <h3 className="text-2xl font-black text-primary uppercase">Rajesh Sharma</h3>
                 <p className="text-secondary font-bold tracking-widest uppercase text-xs">Principal & Academic Director</p>
               </div>
 
