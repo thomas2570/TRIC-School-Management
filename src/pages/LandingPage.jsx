@@ -277,19 +277,40 @@ const LandingPage = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { img: "/images/playground.jpg", title: "Sports Excellence" },
-              { img: "/images/teacher.jpg", title: "Academic Rigor" },
-              { img: "/images/events.jpg", title: "Cultural Vibrancy" }
+              { img: "/images/playground.jpg", title: "Sports Excellence", desc: "Our world-class sports facilities nurture athletic talent." },
+              { img: "/images/classroom.jpg", title: "Academic Rigor", desc: "Modern classrooms designed for focused and collaborative learning." },
+              { img: "/images/events.jpg", title: "Cultural Vibrancy", desc: "Celebrate talent and creativity in our annual cultural events." }
             ].map((item, i) => (
-              <div key={i} className="group relative h-96 overflow-hidden shadow-xl">
+              <motion.div 
+                key={i} 
+                whileHover={{ scale: 1.02 }}
+                className="group relative h-96 overflow-hidden shadow-xl rounded-[2rem] cursor-pointer"
+                onClick={() => {
+                  const modal = document.createElement('div');
+                  modal.className = "fixed inset-0 z-[200] bg-black/90 backdrop-blur-md flex items-center justify-center p-4";
+                  modal.onclick = () => document.body.removeChild(modal);
+                  modal.innerHTML = `
+                    <div class="relative max-w-5xl w-full">
+                      <img src="${item.img}" class="w-full h-auto rounded-3xl shadow-2xl" />
+                      <div class="absolute bottom-8 left-8 text-white">
+                        <h3 class="text-3xl font-black uppercase mb-2">${item.title}</h3>
+                        <p class="text-lg opacity-80">${item.desc}</p>
+                      </div>
+                      <button class="absolute -top-12 right-0 text-white text-4xl font-light">&times;</button>
+                    </div>
+                  `;
+                  document.body.appendChild(modal);
+                }}
+              >
                 <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent flex flex-col justify-end p-8 translate-y-16 group-hover:translate-y-0 transition-transform duration-500">
-                  <h3 className="text-2xl font-black text-white uppercase mb-4">{item.title}</h3>
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent flex flex-col justify-end p-8 translate-y-16 group-hover:translate-y-0 transition-transform duration-500">
+                  <h3 className="text-2xl font-black text-white uppercase mb-2">{item.title}</h3>
+                  <p className="text-blue-100 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity delay-100">{item.desc}</p>
                   <button className="flex items-center gap-2 text-secondary font-bold uppercase text-xs tracking-widest">
-                    Learn More <ArrowRight className="w-4 h-4" />
+                    View Gallery <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
