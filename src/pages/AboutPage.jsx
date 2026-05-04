@@ -5,17 +5,17 @@ import { Mail, Phone, MapPin, Award, BookOpen, Heart } from 'lucide-react';
 
 const AboutPage = () => {
   const teachers = [
-    { name: 'Dr. Sarah Wilson', role: 'Mathematics Department', img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah' },
-    { name: 'Prof. Michael Chen', role: 'Science Department', img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Michael' },
-    { name: 'Mrs. Emily Davis', role: 'English Department', img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Emily' },
-    { name: 'Mr. Robert Taylor', role: 'History Department', img: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Robert' },
+    { name: 'Dr. Ramesh Sharma', role: 'Principal', subject: 'Mathematics', img: '/images/faculty/principal.png' },
+    { name: 'Mrs. Sunita Verma', role: 'Vice Principal', subject: 'English Literature', img: '/images/faculty/vice_principal.png' },
+    { name: 'Mr. Anil Kumar', role: 'Senior Faculty', subject: 'Physics', img: '/images/faculty/teacher1.png' },
+    { name: 'Dr. Anjali Gupta', role: 'Department Head', subject: 'Chemistry', img: '/images/faculty/teacher2.png' }
   ];
 
   return (
     <div className="space-y-12 pb-24">
       <PageHeader 
         title="About Our School" 
-        subtitle="Excellence in Education since 1995. Discover our history, mission, and the team behind our success."
+        subtitle="Excellence in Education since 1995. Discover our history, mission, and the team behind our success at Thomas Ramesh inter college."
         imageUrl="/images/campus.jpg"
       />
 
@@ -58,20 +58,20 @@ const AboutPage = () => {
       <section className="bg-white rounded-[3rem] overflow-hidden shadow-sm border border-gray-100">
         <div className="grid lg:grid-cols-2">
           <div className="h-[400px] lg:h-full relative">
-            <img src="/images/principal.jpg" alt="Principal" className="absolute inset-0 w-full h-full object-cover" />
+            <img src="/images/faculty/principal.png" alt="Principal" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
           </div>
           <div className="p-12 lg:p-20 flex flex-col justify-center">
             <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4">Leadership Message</span>
             <h2 className="text-4xl font-extrabold text-gray-900 mb-6">Principal's Welcome</h2>
-            <p className="text-gray-600 text-lg leading-relaxed italic mb-8">
-              "At SmartSchool, we believe every child is unique and has the potential to achieve greatness. 
+            <p className="text-gray-600 text-lg leading-relaxed italic mb-8 font-serif">
+              "At Thomas Ramesh inter college, we believe every child is unique and has the potential to achieve greatness. 
               Our holistic approach to education ensures that our students are not just academically proficient, 
               but also emotionally resilient and socially responsible."
             </p>
             <div>
-              <h4 className="text-2xl font-bold text-gray-900">Dr. Jonathan Harker</h4>
-              <p className="text-primary font-semibold mt-1">Principal & CEO</p>
+              <h4 className="text-2xl font-bold text-gray-900">Dr. Ramesh Sharma</h4>
+              <p className="text-primary font-semibold mt-1">Principal & Academic Director</p>
             </div>
           </div>
         </div>
