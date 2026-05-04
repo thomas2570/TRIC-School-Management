@@ -27,10 +27,12 @@ const LandingPage = () => {
   const { openAdmission } = useAdmission();
   const [notices, setNotices] = React.useState([]);
 
+  const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:5000' : '');
+
   React.useEffect(() => {
     const fetchNotices = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/notices');
+        const response = await fetch(`${API_URL}/api/notices`);
         const data = await response.json();
         setNotices(data);
       } catch (error) {

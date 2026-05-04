@@ -13,7 +13,7 @@ import { motion } from 'framer-motion';
 import TeacherModal from '../components/TeacherModal';
 import NoticeModal from '../components/NoticeModal';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:5000' : '');
 
 const AdminDashboard = () => {
   const [isTeacherModalOpen, setIsTeacherModalOpen] = React.useState(false);
@@ -47,7 +47,7 @@ const AdminDashboard = () => {
   const handleRemove = async (type, id) => {
     if (window.confirm(`Are you sure you want to remove this ${type}?`)) {
       try {
-        const response = await fetch(`http://localhost:5000/api/admin/${type}/${id}`, { method: 'DELETE' });
+        const response = await fetch(`${API_URL}/api/admin/${type}/${id}`, { method: 'DELETE' });
         if (response.ok) {
           alert(`${type.charAt(0).toUpperCase() + type.slice(1)} removed successfully.`);
           fetchData();

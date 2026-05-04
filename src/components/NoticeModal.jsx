@@ -12,10 +12,12 @@ const NoticeModal = ({ isOpen, onClose }) => {
     author: 'Administration'
   });
 
+  const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:5000' : '');
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/admin/add-notice', {
+      const response = await fetch(`${API_URL}/api/admin/add-notice`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
