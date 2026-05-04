@@ -1,8 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, ChevronRight } from 'lucide-react';
+import { useAdmission } from '../context/AdmissionContext';
 
 const PublicFooter = () => {
+  const { openAdmission } = useAdmission();
+
+  const scrollToSection = (e, id) => {
+    if (window.location.pathname === '/') {
+      e.preventDefault();
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <footer id="contact" className="bg-[#1a0033] text-white pt-24 pb-12 px-6">
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-16 mb-20">
@@ -22,10 +35,17 @@ const PublicFooter = () => {
         <div>
           <h4 className="text-lg font-black uppercase mb-8 text-secondary">Quick Links</h4>
           <ul className="space-y-4 font-sans text-sm text-gray-400 uppercase tracking-widest font-bold">
-            <li><Link to="/#admissions" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4 cursor-pointer">Admissions</Link></li>
-            <li><Link to="/#academics" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">Curriculum</Link></li>
-            <li><Link to="/#school-life" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">Campus Life</Link></li>
-            <li><Link to="/#contact" className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">Contact Us</Link></li>
+            <li>
+              <button 
+                onClick={openAdmission} 
+                className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4 cursor-pointer uppercase text-left w-full"
+              >
+                Admissions
+              </button>
+            </li>
+            <li><Link to="/#academics" onClick={(e) => scrollToSection(e, 'academics')} className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">Curriculum</Link></li>
+            <li><Link to="/#school-life" onClick={(e) => scrollToSection(e, 'school-life')} className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">Campus Life</Link></li>
+            <li><Link to="/#contact" onClick={(e) => scrollToSection(e, 'contact')} className="hover:text-white transition-colors underline decoration-secondary/30 underline-offset-4">Contact Us</Link></li>
           </ul>
         </div>
         <div>
