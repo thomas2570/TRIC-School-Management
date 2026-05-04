@@ -6,10 +6,14 @@ import { Mail, Lock, ArrowRight, ShieldCheck } from 'lucide-react';
 const AdminLoginPage = () => {
   const navigate = useNavigate();
 
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
   const handleLogin = (e) => {
     e.preventDefault();
-    const email = e.target.elements[0].value.toLowerCase();
-    if (email.includes('admin')) {
+    if (email.toLowerCase().includes('admin')) {
+      localStorage.setItem('role', 'admin');
+      localStorage.setItem('user', JSON.stringify({ name: 'System Admin', email: email }));
       navigate('/admin');
     } else {
       alert('Access Denied: Admin credentials required.');
@@ -55,6 +59,8 @@ const AdminLoginPage = () => {
                 <input 
                   type="email" 
                   placeholder="admin@tricprayagraj.edu"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none transition-all font-bold text-white placeholder:text-gray-600"
                   required
                 />
@@ -70,6 +76,8 @@ const AdminLoginPage = () => {
                 <input 
                   type="password" 
                   placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none transition-all font-bold text-white placeholder:text-gray-600"
                   required
                 />

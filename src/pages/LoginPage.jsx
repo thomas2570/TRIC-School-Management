@@ -41,7 +41,7 @@ const LoginPage = () => {
       
       if (response.ok) {
         localStorage.setItem('user', JSON.stringify(data.student || data.teacher));
-        localStorage.setItem('role', loginType);
+        localStorage.setItem('role', loginType === 'staff' ? 'teacher' : 'student');
         navigate(loginType === 'student' ? '/student' : '/teacher');
       } else {
         alert(data.message || 'Login failed');
@@ -152,8 +152,9 @@ const LoginPage = () => {
           </div>
         </div>
         
-        <p className="text-center mt-8 text-white/80 font-medium">
-          Issues logging in? <Link to="#" className="text-white hover:underline">Contact Admin Office</Link>
+        <p className="text-center mt-8 text-white/80 font-medium flex flex-col gap-2">
+          <span>Issues logging in? <Link to="#" className="text-white hover:underline">Contact Admin Office</Link></span>
+          <Link to="/admin-login" className="text-secondary font-black uppercase tracking-widest text-xs hover:brightness-110">Access Admin Portal</Link>
         </p>
       </motion.div>
     </div>
