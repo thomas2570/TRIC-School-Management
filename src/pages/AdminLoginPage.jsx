@@ -11,12 +11,12 @@ const AdminLoginPage = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (email.toLowerCase().includes('admin')) {
+    if (email === 'thomasramesh449@gmail.com' && password === 'Abhi@123') {
       localStorage.setItem('role', 'admin');
-      localStorage.setItem('user', JSON.stringify({ name: 'System Admin', email: email }));
+      localStorage.setItem('user', JSON.stringify({ name: 'Thomas Ramesh', email: email }));
       navigate('/admin');
     } else {
-      alert('Access Denied: Admin credentials required.');
+      alert('Access Denied: Invalid Admin credentials.');
     }
   };
 

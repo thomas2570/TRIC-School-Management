@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
+const dns = require('dns');
 require('dotenv').config();
+
+// Fix for querySrv ECONNREFUSED issues on some networks
+dns.setServers(['8.8.8.8', '8.8.4.4']);
 const Student = require('./models/Student');
 
 const seedData = async () => {

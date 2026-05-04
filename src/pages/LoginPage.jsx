@@ -19,7 +19,7 @@ const LoginPage = () => {
     e.preventDefault();
     
     // Admin bypass
-    if (loginType === 'staff' && formData.identifier === 'thomasramesh@gmail.com' && formData.password === 'Abhi@123') {
+    if (loginType === 'staff' && formData.identifier === 'thomasramesh449@gmail.com' && formData.password === 'Abhi@123') {
       localStorage.setItem('role', 'admin');
       navigate('/admin');
       return;
